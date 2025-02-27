@@ -71,6 +71,28 @@ public class FavouriteSortComparerTest
         result.Should().BePositive();
     }
 
+    [TestMethod]
+    public void WithMultipleDirectRelationReturnsComparison()
+    {
+        // Arrange
+        var item1 = "henlo";
+        var item2 = "dere";
+        var relations = new Relations<string>([
+            new("hola", "hi"),
+            new("bonjour", "hello"),
+            new(item1, item2),
+            new("konnichiwa", "nihao"),
+            new("hallo", "salut"),
+        ]);
+        var subject = CreateSubject(relations: relations);
+
+        // Act
+        var result = subject.Compare(item1, item2);
+
+        // Assert
+        result.Should().BeNegative();
+    }
+
     private FavouriteSortComparer<string> CreateSubject(Relations<string>? relations = default)
     {
         relations ??= Relations<string>.Empty;
