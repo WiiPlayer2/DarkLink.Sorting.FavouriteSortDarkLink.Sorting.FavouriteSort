@@ -35,8 +35,27 @@ public class FavouriteSortComparerTest
             .Which.InnerException.Should().BeOfType<InvalidOperationException>();
     }
 
-    private FavouriteSortComparer<string> CreateSubject()
+    [TestMethod]
+    public void WithDirectRelationReturnsComparison()
     {
-        return new FavouriteSortComparer<string>();
+        // Arrange
+        var item1 = "henlo";
+        var item2 = "dere";
+        var relations = new Relations<string>([
+            new("item1", "item2"),
+        ]);
+        var subject = CreateSubject(relations: relations);
+
+        // Act
+        var result = subject.Compare(item1, item2);
+
+        // Assert
+        result.Should().BeNegative();
+    }
+
+    private FavouriteSortComparer<string> CreateSubject(Relations<string>? relations = default)
+    {
+        relations ??= Relations<string>.Empty;
+        return new FavouriteSortComparer<string>(relations);
     }
 }
