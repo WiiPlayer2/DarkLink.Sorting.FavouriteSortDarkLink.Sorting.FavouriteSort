@@ -4,6 +4,6 @@ public class FavouriteSortComparer<T> : IComparer<T>
 {
     public int Compare(T? x, T? y)
     {
-        throw new NotImplementedException();
+        throw new InvalidOperationException();
     }
 }
