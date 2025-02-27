@@ -42,7 +42,7 @@ public class FavouriteSortComparerTest
         var item1 = "henlo";
         var item2 = "dere";
         var relations = new Relations<string>([
-            new("item1", "item2"),
+            new(item1, item2),
         ]);
         var subject = CreateSubject(relations: relations);
 
@@ -53,9 +53,28 @@ public class FavouriteSortComparerTest
         result.Should().BeNegative();
     }
 
+    [TestMethod]
+    public void WithDirectRelationReturnsComparisonForSwappedItems()
+    {
+        // Arrange
+        var item1 = "henlo";
+        var item2 = "dere";
+        var relations = new Relations<string>([
+            new(item1, item2),
+        ]);
+        var subject = CreateSubject(relations: relations);
+
+        // Act
+        var result = subject.Compare(item2, item1);
+
+        // Assert
+        result.Should().BePositive();
+    }
+
     private FavouriteSortComparer<string> CreateSubject(Relations<string>? relations = default)
     {
         relations ??= Relations<string>.Empty;
-        return new FavouriteSortComparer<string>(relations);
+        var equalityComparer = StringComparer.InvariantCultureIgnoreCase;
+        return new FavouriteSortComparer<string>(relations, equalityComparer);
     }
 }
