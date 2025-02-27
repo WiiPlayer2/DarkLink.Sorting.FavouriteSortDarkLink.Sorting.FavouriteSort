@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkLink.Sorting.FavouriteSort", "DarkLink.Sorting.FavouriteSort\DarkLink.Sorting.FavouriteSort.csproj", "{959F4A24-E611-48FE-A707-7126C517EA94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkLink.Sorting.FavouriteSort.Tests", "DarkLink.Sorting.FavouriteSort.Tests\DarkLink.Sorting.FavouriteSort.Tests.csproj", "{0903E647-CA05-4497-9A6E-4424BBC659B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{959F4A24-E611-48FE-A707-7126C517EA94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{959F4A24-E611-48FE-A707-7126C517EA94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{959F4A24-E611-48FE-A707-7126C517EA94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0903E647-CA05-4497-9A6E-4424BBC659B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0903E647-CA05-4497-9A6E-4424BBC659B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0903E647-CA05-4497-9A6E-4424BBC659B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0903E647-CA05-4497-9A6E-4424BBC659B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
